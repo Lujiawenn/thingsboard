@@ -179,7 +179,7 @@
         <module>dao</module>
         <module>edqs</module>
         <module>transport</module>
-        <module>ui-ngx</module>
+<!--        <module>ui-ngx</module>-->
         <module>tools</module>
         <module>application</module>
         <module>msa</module>
@@ -536,6 +536,8 @@
                             <artifactId>gradle-maven-plugin</artifactId>
                             <configuration>
                                 <gradleProjectDirectory>${main.dir}/packaging/${pkg.type}</gradleProjectDirectory>
+                                <gradleDistribution>https://mirrors.cloud.tencent.com/gradle/gradle-7.3.3-bin.zip</gradleDistribution>
+                                <gradleInstallationDir>E:\\.gradle</gradleInstallationDir>
                                 <tasks>
                                     <task>build</task>
                                     <task>buildDeb</task>
@@ -806,7 +808,7 @@
                     </configuration>
                 </plugin>
                 <plugin>
-                    <groupId>com.mycila</groupId>
+                    <groupId>     com.mycila</groupId>
                     <artifactId>license-maven-plugin</artifactId>
                     <version>3.0</version>
                     <configuration>
@@ -902,10 +904,10 @@
             </plugins>
         </pluginManagement>
         <plugins>
-            <plugin>
-                <groupId>com.mycila</groupId>
-                <artifactId>license-maven-plugin</artifactId>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>com.mycila</groupId>-->
+<!--                <artifactId>license-maven-plugin</artifactId>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 

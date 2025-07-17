@@ -48,13 +48,13 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.thingsboard</groupId>
-            <artifactId>ui-ngx</artifactId>
-            <version>${project.version}</version>
-            <type>jar</type>
-            <scope>provided</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.thingsboard</groupId>-->
+<!--            <artifactId>ui-ngx</artifactId>-->
+<!--            <version>${project.version}</version>-->
+<!--            <type>jar</type>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.sun.winsw</groupId>
             <artifactId>winsw</artifactId>
@@ -80,8 +80,9 @@
                             <goal>install-node-and-yarn</goal>
                         </goals>
                         <configuration>
-                            <nodeVersion>v20.18.0</nodeVersion>
-                            <yarnVersion>v1.22.22</yarnVersion>
+                            <nodeVersion>v16.15.0</nodeVersion>
+<!--                            <yarnVersion>v1.22.22</yarnVersion>-->
+                            <yarnVersion>v1.21.1</yarnVersion>
                         </configuration>
                     </execution>
                     <execution>
@@ -105,48 +106,48 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>extract-web-ui</id>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>org.thingsboard</groupId>
-                                    <artifactId>ui-ngx</artifactId>
-                                    <type>jar</type>
-                                    <overWrite>false</overWrite>
-                                    <outputDirectory>${project.build.directory}/web</outputDirectory>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>copy-winsw-service</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>com.sun.winsw</groupId>
-                                    <artifactId>winsw</artifactId>
-                                    <classifier>bin</classifier>
-                                    <type>exe</type>
-                                    <destFileName>service.exe</destFileName>
-                                </artifactItem>
-                            </artifactItems>
-                            <outputDirectory>${pkg.win.dist}</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-dependency-plugin</artifactId>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>extract-web-ui</id>-->
+<!--                        <goals>-->
+<!--                            <goal>unpack</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <artifactItems>-->
+<!--                                <artifactItem>-->
+<!--                                    <groupId>org.thingsboard</groupId>-->
+<!--                                    <artifactId>ui-ngx</artifactId>-->
+<!--                                    <type>jar</type>-->
+<!--                                    <overWrite>false</overWrite>-->
+<!--                                    <outputDirectory>${project.build.directory}/web</outputDirectory>-->
+<!--                                </artifactItem>-->
+<!--                            </artifactItems>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                    <execution>-->
+<!--                        <id>copy-winsw-service</id>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>copy</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <artifactItems>-->
+<!--                                <artifactItem>-->
+<!--                                    <groupId>com.sun.winsw</groupId>-->
+<!--                                    <artifactId>winsw</artifactId>-->
+<!--                                    <classifier>bin</classifier>-->
+<!--                                    <type>exe</type>-->
+<!--                                    <destFileName>service.exe</destFileName>-->
+<!--                                </artifactItem>-->
+<!--                            </artifactItems>-->
+<!--                            <outputDirectory>${pkg.win.dist}</outputDirectory>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
