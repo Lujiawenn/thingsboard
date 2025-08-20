@@ -42,6 +42,13 @@
             <directory>${project.build.directory}/web</directory>
             <outputDirectory>web</outputDirectory>
         </fileSet>
+        <fileSet>
+            <directory>${project.build.directory}/package/windows</directory>
+            <outputDirectory>windows</outputDirectory>
+            <excludes>
+                <exclude>service.exe</exclude>
+            </excludes>
+        </fileSet>
     </fileSets>
 
     <files>
@@ -50,11 +57,11 @@
             <outputDirectory>bin</outputDirectory>
             <destName>${pkg.name}.exe</destName>
         </file>
-        <file>
-            <source>${pkg.win.dist}/service.exe</source>
-            <outputDirectory/>
-            <destName>${pkg.name}.exe</destName>
-        </file>
+<!--        <file>-->
+<!--            <source>${pkg.win.dist}/service.exe</source>-->
+<!--            <outputDirectory/>-->
+<!--            <destName>${pkg.name}.exe</destName>-->
+<!--        </file>-->
         <file>
             <source>${pkg.win.dist}/service.xml</source>
             <outputDirectory/>

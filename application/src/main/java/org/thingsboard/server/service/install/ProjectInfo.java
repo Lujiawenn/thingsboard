@@ -15,22 +15,44 @@
  */
 package org.thingsboard.server.service.install;
 
-import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Nullable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 @Component
-@RequiredArgsConstructor
+@Slf4j
 public class ProjectInfo {
 
     private final BuildProperties buildProperties;
 
+    @Autowired
+    public ProjectInfo(@Nullable BuildProperties buildProperties) {
+        this.buildProperties = buildProperties;
+    }
+
     public String getProjectVersion() {
-        return buildProperties.getVersion().replaceAll("[^\\d.]", "");
+        if (buildProperties != null) {
+            return buildProperties.getVersion().replaceAll("[^\\d.]", "");
+        } else {
+            log.warn("BuildProperties bean is not available, using default version");
+            return getDefaultVersion();
+        }
     }
 
     public String getProductType() {
         return "CE";
+    }
+
+    private String getDefaultVersion() {
+        // 使用固定的默认版本号，避免从配置文件中读取未处理的占位符
+        // 根据项目版本4.2.0-SNAPSHOT，使用4.2.0作为默认版本
+        return "4.2.0";
     }
 
 }

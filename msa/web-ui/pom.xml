@@ -48,13 +48,13 @@
     </properties>
 
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>org.thingsboard</groupId>-->
-<!--            <artifactId>ui-ngx</artifactId>-->
-<!--            <version>${project.version}</version>-->
-<!--            <type>jar</type>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.thingsboard</groupId>
+            <artifactId>ui-ngx</artifactId>
+            <version>${project.version}</version>
+            <type>jar</type>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>com.sun.winsw</groupId>
             <artifactId>winsw</artifactId>
@@ -80,9 +80,9 @@
                             <goal>install-node-and-yarn</goal>
                         </goals>
                         <configuration>
-                            <nodeVersion>v16.15.0</nodeVersion>
+                            <nodeVersion>v22.17.1</nodeVersion>
 <!--                            <yarnVersion>v1.22.22</yarnVersion>-->
-                            <yarnVersion>v1.21.1</yarnVersion>
+                            <yarnVersion>v1.22.22</yarnVersion>
                         </configuration>
                     </execution>
                     <execution>
@@ -226,6 +226,28 @@
             </activation>
             <build>
                 <plugins>
+<!--                    <plugin>-->
+<!--                        <groupId>com.github.eirslett</groupId>-->
+<!--                        <artifactId>frontend-maven-plugin</artifactId>-->
+<!--                        <configuration>-->
+<!--                            <installDirectory>target</installDirectory>-->
+<!--                            <workingDirectory>${basedir}</workingDirectory>-->
+<!--                        </configuration>-->
+<!--                        <executions>-->
+<!--                            <execution>-->
+<!--                                <id>yarn start</id>-->
+<!--                                <goals>-->
+<!--                                    <goal>yarn</goal>-->
+<!--                                </goals>-->
+
+<!--                                <configuration>-->
+<!--                                    <arguments>start</arguments>-->
+
+<!--                                </configuration>-->
+
+<!--                            </execution>-->
+<!--                        </executions>-->
+<!--                    </plugin>-->
                     <plugin>
                         <groupId>com.github.eirslett</groupId>
                         <artifactId>frontend-maven-plugin</artifactId>
@@ -239,9 +261,8 @@
                                 <goals>
                                     <goal>yarn</goal>
                                 </goals>
-
                                 <configuration>
-                                    <arguments>start</arguments>
+                                    <arguments>--registry https://registry.npmmirror.com  start</arguments>
                                 </configuration>
                             </execution>
                         </executions>
