@@ -21,6 +21,7 @@
     cursor: pointer;
     border: none;
     transform: none;
+    object-fit: contain;
 
     &:focus {
       outline: 0;
