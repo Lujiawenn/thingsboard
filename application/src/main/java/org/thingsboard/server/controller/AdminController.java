@@ -97,7 +97,7 @@ import static org.thingsboard.server.controller.ControllerConstants.TENANT_AUTHO
 @RestController
 @TbCoreComponent
 @Slf4j
-@RequestMapping("/api/admin1")
+@RequestMapping("/api/admin")
 @RequiredArgsConstructor
 public class AdminController extends BaseController {
 
